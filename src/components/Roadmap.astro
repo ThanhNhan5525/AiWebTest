@@ -1,0 +1,359 @@
+---
+const phases = [
+  {
+    number: 1,
+    emoji: "🟢",
+    label: "Nền Tảng",
+    color: "green",
+    title: "Vibe Coding Cơ Bản",
+    items: [
+      "Vibe Coding là gì?",
+      "Cài đặt Cursor AI",
+      "Prompt đầu tiên",
+      "Tạo website đầu tay",
+    ],
+    badge: "~10 bài · Dành cho người mới",
+  },
+  {
+    number: 2,
+    emoji: "🔵",
+    label: "Ứng Dụng",
+    color: "blue",
+    title: "Xây Dựng Ứng Dụng Thực Tế",
+    items: [
+      "Landing page",
+      "Web app",
+      "Chrome Extension",
+      "API Integration",
+    ],
+    badge: "~15 bài · Thực hành nhiều",
+  },
+  {
+    number: 3,
+    emoji: "🟣",
+    label: "AI Agent",
+    color: "purple",
+    title: "Tạo AI Agent & Automation",
+    items: [
+      "AI Agent cơ bản",
+      "Workflow tự động",
+      "MCP Protocol",
+      "n8n & Make",
+    ],
+    badge: "~12 bài · Nâng cao",
+  },
+  {
+    number: 4,
+    emoji: "🔴",
+    label: "Chuyên Gia",
+    color: "red",
+    title: "Multi-Agent & Production",
+    items: [
+      "Multi-agent systems",
+      "Deploy production",
+      "Monetization",
+      "Freelance AI",
+    ],
+    badge: "~8 bài · Expert",
+  },
+];
+
+/* Tailwind color maps so we can dynamically pick classes */
+const colorMap: Record<string, {
+  border: string;
+  bg: string;
+  text: string;
+  glow: string;
+  badgeBg: string;
+  badgeText: string;
+  numberBg: string;
+  dot: string;
+  link: string;
+}> = {
+  green: {
+    border: "border-green-400/60",
+    bg: "bg-green-400/10",
+    text: "text-green-400",
+    glow: "shadow-green-500/20",
+    badgeBg: "bg-green-400/15",
+    badgeText: "text-green-300",
+    numberBg: "bg-green-500",
+    dot: "bg-green-400",
+    link: "text-green-400 hover:text-green-300",
+  },
+  blue: {
+    border: "border-blue-400/60",
+    bg: "bg-blue-400/10",
+    text: "text-blue-400",
+    glow: "shadow-blue-500/20",
+    badgeBg: "bg-blue-400/15",
+    badgeText: "text-blue-300",
+    numberBg: "bg-blue-500",
+    dot: "bg-blue-400",
+    link: "text-blue-400 hover:text-blue-300",
+  },
+  purple: {
+    border: "border-purple-400/60",
+    bg: "bg-purple-400/10",
+    text: "text-purple-400",
+    glow: "shadow-purple-500/20",
+    badgeBg: "bg-purple-400/15",
+    badgeText: "text-purple-300",
+    numberBg: "bg-purple-500",
+    dot: "bg-purple-400",
+    link: "text-purple-400 hover:text-purple-300",
+  },
+  red: {
+    border: "border-red-400/60",
+    bg: "bg-red-400/10",
+    text: "text-red-400",
+    glow: "shadow-red-500/20",
+    badgeBg: "bg-red-400/15",
+    badgeText: "text-red-300",
+    numberBg: "bg-red-500",
+    dot: "bg-red-400",
+    link: "text-red-400 hover:text-red-300",
+  },
+};
+---
+
+<section id="roadmap" class="relative py-20 md:py-32 overflow-hidden">
+  <!-- Background ambient glow -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-purple-600/5 blur-[120px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16 md:mb-24">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
+        <span class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          🗺️ Lộ Trình Học Tập
+        </span>
+      </h2>
+      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+        Từ người mới bắt đầu đến AI Builder chuyên nghiệp
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical centre line -->
+      <div
+        class="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-400/60 via-purple-400/60 to-red-400/60"
+        aria-hidden="true"
+      ></div>
+
+      <div class="space-y-12 md:space-y-20">
+        {phases.map((phase, idx) => {
+          const c = colorMap[phase.color];
+          const isEven = idx % 2 === 0;
+          return (
+            <div
+              class="roadmap-phase relative flex flex-col md:flex-row items-start md:items-center"
+              data-phase={phase.number}
+            >
+              {/* ---- Desktop: left content area (even phases) ---- */}
+              <div
+                class={`hidden md:block md:w-1/2 ${isEven ? "md:pr-12 md:text-right" : "md:order-3 md:pl-12 md:text-left"}`}
+              >
+                {isEven ? (
+                  <div
+                    class={`
+                      roadmap-card inline-block w-full max-w-md ml-auto
+                      rounded-2xl p-6
+                      border ${c.border} border-r-4
+                      bg-gray-900/70 backdrop-blur-md
+                      shadow-lg ${c.glow}
+                      transition-all duration-500
+                    `}
+                  >
+                    {/* Phase number badge */}
+                    <div class="flex items-center justify-end gap-3 mb-3">
+                      <span class={`text-xs font-bold uppercase tracking-widest ${c.text}`}>
+                        Phase {phase.number}
+                      </span>
+                      <span
+                        class={`inline-flex items-center justify-center w-9 h-9 rounded-full ${c.numberBg} text-white font-bold text-sm shadow-lg`}
+                      >
+                        {phase.number}
+                      </span>
+                    </div>
+
+                    <h3 class={`text-xl font-bold mb-1 ${c.text}`}>
+                      {phase.emoji} {phase.label}
+                    </h3>
+                    <p class="text-gray-300 font-medium mb-3">{phase.title}</p>
+
+                    <ul class="space-y-1.5 mb-4">
+                      {phase.items.map((item) => (
+                        <li class="flex items-center justify-end gap-2 text-sm text-gray-400">
+                          <span>{item}</span>
+                          <span class={`w-1.5 h-1.5 rounded-full ${c.dot} shrink-0`} />
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div class="flex items-center justify-between">
+                      <a href="#" class={`text-sm font-semibold ${c.link} transition-colors`}>
+                        Xem bài học →
+                      </a>
+                      <span class={`text-xs px-2.5 py-1 rounded-full ${c.badgeBg} ${c.badgeText} font-medium`}>
+                        {phase.badge}
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <Fragment />
+                )}
+              </div>
+
+              {/* ---- Centre dot ---- */}
+              <div
+                class={`
+                  absolute left-4 md:static md:order-2
+                  flex items-center justify-center
+                  z-20
+                  -translate-x-1/2 md:translate-x-0
+                `}
+              >
+                <span
+                  class={`
+                    block w-5 h-5 rounded-full
+                    ${c.dot} ring-4 ring-gray-950
+                    shadow-[0_0_12px_2px] ${c.glow}
+                  `}
+                />
+              </div>
+
+              {/* ---- Desktop: right content area (odd phases) / Mobile: single column ---- */}
+              <div
+                class={`
+                  pl-10 md:pl-0
+                  md:w-1/2
+                  ${isEven ? "md:order-3 md:pl-12 md:text-left" : "md:pr-12 md:text-right md:order-1"}
+                `}
+              >
+                {!isEven || true ? (
+                  <div
+                    class={`
+                      roadmap-card w-full max-w-md
+                      ${isEven ? "md:hidden" : ""}
+                      ${!isEven ? "" : ""}
+                      rounded-2xl p-6
+                      border ${c.border} border-l-4
+                      bg-gray-900/70 backdrop-blur-md
+                      shadow-lg ${c.glow}
+                      transition-all duration-500
+                    `}
+                  >
+                    {/* Phase number badge */}
+                    <div class={`flex items-center gap-3 mb-3 ${!isEven ? "md:justify-end" : ""}`}>
+                      <span
+                        class={`inline-flex items-center justify-center w-9 h-9 rounded-full ${c.numberBg} text-white font-bold text-sm shadow-lg`}
+                      >
+                        {phase.number}
+                      </span>
+                      <span class={`text-xs font-bold uppercase tracking-widest ${c.text}`}>
+                        Phase {phase.number}
+                      </span>
+                    </div>
+
+                    <h3 class={`text-xl font-bold mb-1 ${c.text}`}>
+                      {phase.emoji} {phase.label}
+                    </h3>
+                    <p class="text-gray-300 font-medium mb-3">{phase.title}</p>
+
+                    <ul class="space-y-1.5 mb-4">
+                      {phase.items.map((item) => (
+                        <li class={`flex items-center gap-2 text-sm text-gray-400 ${!isEven ? "md:justify-end" : ""}`}>
+                          {!isEven ? (
+                            <>
+                              <span class="md:order-2">{item}</span>
+                              <span class={`w-1.5 h-1.5 rounded-full ${c.dot} shrink-0 md:order-1`} />
+                            </>
+                          ) : (
+                            <>
+                              <span class={`w-1.5 h-1.5 rounded-full ${c.dot} shrink-0`} />
+                              <span>{item}</span>
+                            </>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div class={`flex items-center justify-between ${!isEven ? "md:flex-row-reverse" : ""}`}>
+                      <a href="#" class={`text-sm font-semibold ${c.link} transition-colors`}>
+                        Xem bài học →
+                      </a>
+                      <span class={`text-xs px-2.5 py-1 rounded-full ${c.badgeBg} ${c.badgeText} font-medium`}>
+                        {phase.badge}
+                      </span>
+                    </div>
+                  </div>
+                ) : (
+                  <Fragment />
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ---- scroll-reveal animation ---- */
+  .roadmap-phase {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .roadmap-phase.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .roadmap-phase:nth-child(2) { transition-delay: 0.1s; }
+  .roadmap-phase:nth-child(3) { transition-delay: 0.2s; }
+  .roadmap-phase:nth-child(4) { transition-delay: 0.3s; }
+
+  /* Card hover glow pulse */
+  .roadmap-card:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.08);
+  }
+</style>
+
+<script>
+  function initRoadmapObserver() {
+    const phases = document.querySelectorAll('.roadmap-phase');
+    if (!phases.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    phases.forEach((phase) => observer.observe(phase));
+  }
+
+  /* Run on initial load and on Astro view-transition navigations */
+  document.addEventListener('astro:page-load', initRoadmapObserver);
+  if (document.readyState !== 'loading') {
+    initRoadmapObserver();
+  } else {
+    document.addEventListener('DOMContentLoaded', initRoadmapObserver);
+  }
+</script>

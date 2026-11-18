@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#d946ef" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#0f172a" />
+  <rect x="5" y="5" width="90" height="90" rx="20" fill="none" stroke="url(#grad)" stroke-width="4" />
+  <text x="50" y="62" font-family="Inter, system-ui, sans-serif" font-size="44" font-weight="900" fill="url(#grad)" text-anchor="middle">AI</text>
+</svg>

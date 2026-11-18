@@ -1,0 +1,77 @@
+---
+// Hero.astro
+---
+
+<section id="hero" class="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 overflow-hidden">
+  <!-- Glow Orbs in background -->
+  <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-primary-500/20 via-accent-500/20 to-transparent blur-[140px]"></div>
+    <div class="absolute top-1/3 left-10 w-[350px] h-[350px] rounded-full bg-primary-600/10 blur-[100px]"></div>
+    <div class="absolute top-1/2 right-10 w-[400px] h-[400px] rounded-full bg-accent-600/10 blur-[120px]"></div>
+    
+    <!-- Grid overlay pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <!-- Top Chip Badge -->
+    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass border border-primary-500/30 mb-8 animate-fade-in shadow-lg shadow-primary-500/10">
+      <span class="flex h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+      <span class="text-xs font-semibold uppercase tracking-wider text-primary-300">
+        🎓 100% Miễn Phí · Tiếng Việt · Từ Con Số 0
+      </span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6">
+      Tự Học <span class="gradient-text">AI Agent</span><br />
+      & <span class="bg-gradient-to-r from-accent-400 via-pink-400 to-amber-300 bg-clip-text text-transparent">Vibe Coding</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-lg sm:text-xl text-dark-300 max-w-3xl mx-auto mb-10 leading-relaxed font-normal">
+      Lộ trình bài bản giúp bạn biến ý tưởng thành ứng dụng thực tế bằng ngôn ngữ tự nhiên.
+      Không cần biết lập trình truyền thống. Dành riêng cho cộng đồng builder Việt Nam.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <a 
+        href="#roadmap" 
+        class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 bg-[length:200%_auto] hover:bg-right transition-all duration-500 rounded-2xl font-bold text-base text-white shadow-xl shadow-primary-500/30 hover:scale-105 transform flex items-center justify-center space-x-2 group"
+      >
+        <span>Bắt Đầu Học Ngay</span>
+        <span class="group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+      <a 
+        href="https://www.youtube.com/@thanhnhan8650" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="w-full sm:w-auto px-8 py-4 glass glass-hover rounded-2xl font-semibold text-base text-dark-100 flex items-center justify-center space-x-3 border border-dark-700/80 hover:border-red-500/40"
+      >
+        <span class="text-red-500 text-lg">▶</span>
+        <span>Xem Kênh Video</span>
+      </a>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <div class="glass p-5 rounded-2xl border border-dark-800 text-center hover:border-primary-500/30 transition-all">
+        <div class="text-2xl sm:text-3xl font-black text-primary-400 mb-1">50+</div>
+        <div class="text-xs text-dark-400 font-medium">Video Bài Giảng</div>
+      </div>
+      <div class="glass p-5 rounded-2xl border border-dark-800 text-center hover:border-accent-500/30 transition-all">
+        <div class="text-2xl sm:text-3xl font-black text-accent-400 mb-1">1,000+</div>
+        <div class="text-xs text-dark-400 font-medium">Học Viên Tham Gia</div>
+      </div>
+      <div class="glass p-5 rounded-2xl border border-dark-800 text-center hover:border-emerald-500/30 transition-all">
+        <div class="text-2xl sm:text-3xl font-black text-emerald-400 mb-1">0 VNĐ</div>
+        <div class="text-xs text-dark-400 font-medium">100% Miễn Phí</div>
+      </div>
+      <div class="glass p-5 rounded-2xl border border-dark-800 text-center hover:border-amber-500/30 transition-all">
+        <div class="text-2xl sm:text-3xl font-black text-amber-400 mb-1">0 Code</div>
+        <div class="text-xs text-dark-400 font-medium">Không Cần Nền Tảng</div>
+      </div>
+    </div>
+  </div>
+</section>

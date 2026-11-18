@@ -1,0 +1,141 @@
+---
+// About.astro — "Giới Thiệu Nhanh" section
+const features = [
+  {
+    emoji: "🤖",
+    title: "AI Agent là gì?",
+    description:
+      "AI Agent là trợ lý thông minh tự động thực hiện nhiệm vụ cho bạn — từ trả lời email, phân tích dữ liệu đến viết code.",
+  },
+  {
+    emoji: "⚡",
+    title: "Vibe Coding là gì?",
+    description:
+      "Viết code bằng ngôn ngữ tự nhiên. Bạn mô tả ý tưởng, AI viết code cho bạn. Không cần học lập trình truyền thống.",
+  },
+  {
+    emoji: "🎯",
+    title: "Tại sao nên học ngay?",
+    description:
+      "AI đang thay đổi mọi ngành nghề. Người bắt đầu sớm sẽ có lợi thế cạnh tranh vượt trội trong 2-3 năm tới.",
+  },
+];
+---
+
+<section id="about" class="relative py-20 md:py-32 overflow-hidden">
+  <!-- Background ambient glow -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10"
+    aria-hidden="true"
+  >
+    <div
+      class="absolute left-1/4 top-1/3 h-[420px] w-[420px] rounded-full bg-cyan-500/10 blur-[120px]"
+    ></div>
+    <div
+      class="absolute right-1/4 bottom-1/4 h-[360px] w-[360px] rounded-full bg-purple-500/10 blur-[120px]"
+    ></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <!-- Section title -->
+    <div class="mb-16 text-center">
+      <h2
+        class="inline-block text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl"
+      >
+        <span
+          class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+        >
+          Vì Sao Bạn Nên Bắt Đầu Ngay?
+        </span>
+      </h2>
+      <div
+        class="mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500"
+      ></div>
+    </div>
+
+    <!-- Feature cards — 3-column grid -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((card) => (
+          <div class="group glass-card relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 hover:border-cyan-400/40 hover:shadow-[0_0_30px_-5px_rgba(34,211,238,.25)]">
+            {/* Hover glow overlay */}
+            <div class="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-cyan-500/0 to-purple-500/0 opacity-0 blur-xl transition-opacity duration-500 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 group-hover:opacity-100" />
+
+            <span class="mb-4 block text-4xl">{card.emoji}</span>
+            <h3 class="mb-3 text-xl font-bold text-white">{card.title}</h3>
+            <p class="leading-relaxed text-gray-400">{card.description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Founder introduction card -->
+    <div
+      class="group glass-card relative mx-auto mt-16 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 hover:border-purple-400/40 hover:shadow-[0_0_40px_-5px_rgba(168,85,247,.25)] sm:p-10"
+    >
+      {/* Hover glow overlay */}
+      <div
+        class="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-purple-500/0 to-cyan-500/0 opacity-0 blur-xl transition-opacity duration-500 group-hover:from-purple-500/10 group-hover:to-cyan-500/10 group-hover:opacity-100"
+      ></div>
+
+      <div class="flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-center sm:gap-8">
+        <!-- Avatar placeholder -->
+        <div class="mb-6 flex-shrink-0 sm:mb-0">
+          <div
+            class="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 text-4xl shadow-lg shadow-purple-500/20 ring-2 ring-white/10"
+          >
+            👨‍💻
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="flex-1">
+          <h3 class="mb-1 text-xl font-bold text-white">
+            Việt&nbsp;
+            <span
+              class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              (@vietinvester)
+            </span>
+          </h3>
+
+          <p class="mb-5 leading-relaxed text-gray-400">
+            Chia sẻ kiến thức AI Agent &amp; Vibe Coding miễn phí cho cộng
+            đồng Việt Nam
+          </p>
+
+          <a
+            href="https://www.youtube.com/@vietinvester"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-5 py-2.5 text-sm font-semibold text-red-400 transition-all duration-300 hover:border-red-400/60 hover:bg-red-500/20 hover:shadow-[0_0_20px_-5px_rgba(239,68,68,.35)]"
+          >
+            <!-- YouTube icon -->
+            <svg
+              class="h-5 w-5 fill-current"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              ></path>
+            </svg>
+            YouTube Channel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Glass-card base layer for reuse & specificity */
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+  }
+</style>

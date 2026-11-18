@@ -1,0 +1,122 @@
+---
+// Header.astro
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 glass border-b border-dark-800/80 bg-dark-950/80 backdrop-blur-xl">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-500 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/30 group-hover:scale-105 transition-transform duration-300">
+          <span class="text-xl">🚀</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-black tracking-tight gradient-text">AI Agent & Vibe Coding</span>
+          <span class="text-[10px] text-dark-400 font-mono tracking-wider uppercase">Cộng Đồng Builder VN</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="text-sm font-medium text-dark-300 hover:text-primary-400 transition-colors">Giới thiệu</a>
+        <a href="#roadmap" class="text-sm font-medium text-dark-300 hover:text-primary-400 transition-colors">Lộ trình</a>
+        <a href="#videos" class="text-sm font-medium text-dark-300 hover:text-primary-400 transition-colors">Video bài giảng</a>
+        <a href="#faq" class="text-sm font-medium text-dark-300 hover:text-primary-400 transition-colors">Giải đáp (FAQ)</a>
+        <a href="#community" class="text-sm font-medium text-dark-300 hover:text-primary-400 transition-colors">Cộng đồng</a>
+      </nav>
+
+      <!-- CTA Button Desktop -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a 
+          href="https://www.youtube.com/@thanhnhan8650" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="p-2 text-dark-400 hover:text-red-400 transition-colors"
+          title="Kênh YouTube"
+        >
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+        <a 
+          href="#roadmap" 
+          class="px-5 py-2.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-semibold text-xs uppercase tracking-wider text-white hover:from-primary-400 hover:to-accent-400 transform hover:scale-105 transition-all duration-200 shadow-md shadow-primary-500/20"
+        >
+          Học Miễn Phí
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex md:hidden items-center">
+        <button 
+          id="mobile-menu-btn" 
+          type="button" 
+          class="p-2 rounded-lg text-dark-400 hover:text-white hover:bg-dark-800 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden border-b border-dark-800 bg-dark-950/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+    <a href="#about" class="block px-3 py-2 rounded-lg text-base font-medium text-dark-200 hover:bg-dark-800 mobile-nav-link">Giới thiệu</a>
+    <a href="#roadmap" class="block px-3 py-2 rounded-lg text-base font-medium text-dark-200 hover:bg-dark-800 mobile-nav-link">Lộ trình</a>
+    <a href="#videos" class="block px-3 py-2 rounded-lg text-base font-medium text-dark-200 hover:bg-dark-800 mobile-nav-link">Video bài giảng</a>
+    <a href="#faq" class="block px-3 py-2 rounded-lg text-base font-medium text-dark-200 hover:bg-dark-800 mobile-nav-link">Giải đáp (FAQ)</a>
+    <a href="#community" class="block px-3 py-2 rounded-lg text-base font-medium text-dark-200 hover:bg-dark-800 mobile-nav-link">Cộng đồng</a>
+    <div class="pt-4 flex flex-col space-y-3">
+      <a 
+        href="https://www.youtube.com/@thanhnhan8650" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="flex items-center justify-center space-x-2 py-2.5 rounded-xl border border-dark-700 text-sm font-medium text-dark-200 hover:bg-dark-800"
+      >
+        <svg class="w-5 h-5 fill-red-500" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <span>Kênh YouTube Việt Invester</span>
+      </a>
+      <a 
+        href="#roadmap" 
+        class="text-center py-3 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl font-bold text-sm text-white uppercase mobile-nav-link"
+      >
+        🚀 Bắt Đầu Học Ngay
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (btn && menu && iconOpen && iconClose) {
+    btn.addEventListener('click', () => {
+      const isHidden = menu.classList.contains('hidden');
+      if (isHidden) {
+        menu.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  }
+</script>

@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = 'Tự Học AI Agent & Vibe Coding — Miễn Phí 100% — Việt Invester & Cộng Đồng Builder',
+  description = 'Lộ trình bài bản bằng tiếng Việt cho người mới bắt đầu từ con số 0. Học Vibe Coding, tạo ứng dụng, workflow automation và AI Agent hoàn toàn miễn phí.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="vi" class="dark scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-dark-950 text-dark-100 font-sans antialiased min-h-screen selection:bg-accent-500/30 selection:text-white">
+    <slot />
+  </body>
+</html>

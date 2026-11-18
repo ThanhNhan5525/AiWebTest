@@ -1,0 +1,110 @@
+---
+// ObjectionBuster.astro
+const objections = [
+  {
+    icon: "😰",
+    q: "Tôi không biết gì về lập trình, liệu có học được không?",
+    a: "Hoàn toàn học được! Vibe Coding chính là viết code bằng ngôn ngữ tự nhiên (tiếng Việt). Bạn chỉ cần mô tả ý tưởng: 'Tôi muốn làm website bán bánh có nút thanh toán', AI sẽ tự động sinh mã nguồn, cài đặt và sửa lỗi cho bạn. Rất nhiều học viên không biết một dòng code nào vẫn tự tạo được app hoàn chỉnh."
+  },
+  {
+    icon: "💸",
+    q: "Học và dùng AI Agent có tốn kém chi phí không?",
+    a: "100% nội dung và tài liệu trên website này đều miễn phí. Hầu hết các công cụ như Cursor, ChatGPT, Claude, Vercel đều có phiên bản dùng thử hoặc gói miễn phí rất rộng rãi, đủ để bạn học và tạo sản phẩm hoàn chỉnh mà không tốn một đồng nào."
+  },
+  {
+    icon: "🌍",
+    q: "Tiếng Anh của tôi kém thì có gặp trở ngại không?",
+    a: "Không hề! Toàn bộ bài giảng được hướng dẫn bằng tiếng Việt 100%. Các prompt mẫu đều có bản tiếng Việt và được tối ưu để các mô hình AI hiểu ngữ cảnh văn hóa Việt Nam cực kỳ chính xác."
+  },
+  {
+    icon: "👴",
+    q: "Tôi đã lớn tuổi / đi làm trái ngành, liệu có quá muộn?",
+    a: "AI là công cụ san phẳng khoảng cách. Càng có nhiều trải nghiệm sống và kinh nghiệm nghiệp vụ trong ngành của mình (kế toán, kinh doanh, giáo dục, marketing...), bạn càng biết chính xác mình cần xây dựng ứng dụng gì để giải quyết vấn đề thật. Độ tuổi không phải là rào cản."
+  },
+  {
+    icon: "⏰",
+    q: "Tôi rất bận, mỗi ngày chỉ có 30 phút thì học thế nào?",
+    a: "Các video được chia nhỏ thành từng bài ngắn 10–20 phút theo phong cách 'thực chiến ngay'. Bạn chỉ cần xem một bài, mở máy lên gõ theo là có ngay kết quả tức thì. Tự học theo nhịp độ cá nhân, không có deadline hay áp lực điểm số."
+  },
+  {
+    icon: "🤔",
+    q: "AI phát triển nhanh quá, học hôm nay mai có bị lỗi thời không?",
+    a: "Chúng tôi tập trung vào tư duy cốt lõi: 'Tư duy phân rã vấn đề' và 'Kỹ năng chỉ đạo AI (Context Engineering)'. Khi bạn đã nắm vững tư duy cách làm việc với AI Agent, bất kể công cụ nào mới ra đời bạn cũng chỉ mất vài phút để làm chủ."
+  }
+];
+---
+
+<section id="faq" class="py-20 md:py-32 relative bg-dark-900/40">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
+        🛡️ <span class="gradient-text">Giải Tỏa Mọi Rào Cản</span>
+      </h2>
+      <p class="section-subtitle">
+        Những e ngại phổ biến nhất của người mới bắt đầu — và lý do vì sao bạn có thể tự tin bắt đầu ngay hôm nay.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {objections.map((item, idx) => (
+        <div class="faq-item glass rounded-2xl border border-dark-800 overflow-hidden transition-all duration-200">
+          <button 
+            type="button" 
+            class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between space-x-4 hover:bg-dark-800/50 transition-colors"
+            data-target={`faq-answer-${idx}`}
+          >
+            <div class="flex items-center space-x-4">
+              <span class="text-2xl flex-shrink-0">{item.icon}</span>
+              <span class="text-base sm:text-lg font-bold text-dark-100">{item.q}</span>
+            </div>
+            <div class="faq-icon w-8 h-8 rounded-full bg-dark-800 flex items-center justify-center text-dark-400 flex-shrink-0 transition-transform duration-300">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          
+          <div id={`faq-answer-${idx}`} class="faq-content hidden px-6 pb-6 pt-1 text-sm sm:text-base text-dark-300 leading-relaxed border-t border-dark-800/40">
+            <div class="p-4 rounded-xl bg-dark-950/60 border border-dark-800 text-dark-200">
+              {item.a}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Motivational bottom note -->
+    <div class="mt-12 text-center p-6 glass rounded-2xl border border-primary-500/20">
+      <p class="text-dark-300 text-sm">
+        💡 Bạn vẫn còn câu hỏi khác chưa được giải đáp? 
+        <a href="#community" class="text-primary-400 hover:underline font-semibold ml-1">
+          Hỏi trực tiếp cộng đồng trong nhóm trao đổi →
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.faq-btn');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      if (!targetId) return;
+      const content = document.getElementById(targetId);
+      const icon = btn.querySelector('.faq-icon');
+
+      if (content) {
+        const isHidden = content.classList.contains('hidden');
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon?.classList.add('rotate-180', 'text-primary-400');
+        } else {
+          content.classList.add('hidden');
+          icon?.classList.remove('rotate-180', 'text-primary-400');
+        }
+      }
+    });
+  });
+</script>

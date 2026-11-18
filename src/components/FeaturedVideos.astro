@@ -1,0 +1,201 @@
+---
+// FeaturedVideos.astro
+const videos = [
+  {
+    id: "1",
+    title: "Vibe Coding Là Gì? Hướng Dẫn Tự Làm Web Cho Người Không Biết Code",
+    category: "Vibe Coding",
+    duration: "18:42",
+    views: "3.2K",
+    date: "3 ngày trước",
+    desc: "Khái niệm Vibe Coding từ Andrej Karpathy và cách áp dụng ngay để tạo sản phẩm đầu tay trong 30 phút.",
+    tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+    url: "https://www.youtube.com/@thanhnhan8650"
+  },
+  {
+    id: "2",
+    title: "Cài Đặt Cursor AI & Viết App Đầu Tiên Bằng Tiếng Việt",
+    category: "Vibe Coding",
+    duration: "24:15",
+    views: "5.1K",
+    date: "1 tuần trước",
+    desc: "Từng bước cài đặt Cursor AI, setup rules, viết prompt chuẩn để AI code chính xác mà không bị bug.",
+    tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
+    url: "https://www.youtube.com/@thanhnhan8650"
+  },
+  {
+    id: "3",
+    title: "AI Agent 101: Tự Động Hóa Công Việc Từ A Đến Z",
+    category: "AI Agent",
+    duration: "31:08",
+    views: "4.8K",
+    date: "2 tuần trước",
+    desc: "Tìm hiểu kiến trúc AI Agent, tool use, memory và cách để agent tự suy luận và giải quyết bài toán phức tạp.",
+    tagColor: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+    url: "https://www.youtube.com/@thanhnhan8650"
+  },
+  {
+    id: "4",
+    title: "Tạo Bot Tự Động Hóa Workflow Với n8n & Gemini AI",
+    category: "AI Agent",
+    duration: "28:50",
+    views: "2.7K",
+    date: "3 tuần trước",
+    desc: "Kết nối Google Sheets, Telegram và AI để tạo luồng tự động hóa chăm sóc khách hàng 24/7.",
+    tagColor: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+    url: "https://www.youtube.com/@thanhnhan8650"
+  },
+  {
+    id: "5",
+    title: "So Sánh Bolt.new, v0.dev, Cursor và Replit — Nên Dùng Cái Nào?",
+    category: "Tools",
+    duration: "22:19",
+    views: "6.4K",
+    date: "1 tháng trước",
+    desc: "Đánh giá chi tiết ưu nhược điểm, chi phí và kịch bản sử dụng tối ưu của từng công cụ AI hàng đầu hiện nay.",
+    tagColor: "bg-amber-500/10 text-amber-400 border-amber-500/30",
+    url: "https://www.youtube.com/@thanhnhan8650"
+  },
+  {
+    id: "6",
+    title: "Deploy Sản Phẩm Lên Internet Miễn Phí Với Vercel & Cloudflare",
+    category: "Tools",
+    duration: "16:45",
+    views: "1.9K",
+    date: "1 tháng trước",
+    desc: "Hướng dẫn đưa website của bạn lên mạng với tên miền riêng, chứng chỉ SSL bảo mật 100% miễn phí.",
+    tagColor: "bg-amber-500/10 text-amber-400 border-amber-500/30",
+    url: "https://www.youtube.com/@thanhnhan8650"
+  }
+];
+---
+
+<section id="videos" class="py-20 md:py-32 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
+        🎬 <span class="gradient-text">Video Bài Giảng Nổi Bật</span>
+      </h2>
+      <p class="section-subtitle">
+        Xem và thực hành theo từng video. Hoàn toàn miễn phí, có tài liệu và prompt đính kèm.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-8" id="video-filter-tabs">
+        <button class="filter-btn active px-5 py-2 rounded-xl text-sm font-semibold transition-all bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-md shadow-primary-500/20" data-filter="all">
+          Tất cả
+        </button>
+        <button class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all glass hover:bg-dark-800 text-dark-300 hover:text-white" data-filter="Vibe Coding">
+          Vibe Coding
+        </button>
+        <button class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all glass hover:bg-dark-800 text-dark-300 hover:text-white" data-filter="AI Agent">
+          AI Agent
+        </button>
+        <button class="filter-btn px-5 py-2 rounded-xl text-sm font-semibold transition-all glass hover:bg-dark-800 text-dark-300 hover:text-white" data-filter="Tools">
+          Tools & Tips
+        </button>
+      </div>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="video-grid">
+      {videos.map((vid) => (
+        <a 
+          href={vid.url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="video-card group block glass rounded-2xl overflow-hidden border border-dark-800 hover:border-primary-500/40 hover:-translate-y-1.5 transition-all duration-300"
+          data-category={vid.category}
+        >
+          <!-- Video Thumbnail Container -->
+          <div class="relative aspect-video bg-dark-900 overflow-hidden flex items-center justify-center">
+            <!-- Simulated background gradient art -->
+            <div class="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-900 to-dark-950 group-hover:scale-105 transition-transform duration-500"></div>
+            
+            <!-- Tech grid inside thumb -->
+            <div class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#38bdf820_1px,transparent_1px),linear-gradient(to_bottom,#38bdf820_1px,transparent_1px)] bg-[size:1.5rem_1.5rem]"></div>
+            
+            <!-- Category Badge -->
+            <div class="absolute top-3 left-3 z-10">
+              <span class={`text-[11px] font-bold px-3 py-1 rounded-full border backdrop-blur-md ${vid.tagColor}`}>
+                {vid.category}
+              </span>
+            </div>
+
+            <!-- Duration Badge -->
+            <div class="absolute bottom-3 right-3 z-10 bg-dark-950/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-mono font-medium text-dark-200">
+              {vid.duration}
+            </div>
+
+            <!-- Play Button Overlay -->
+            <div class="relative z-10 w-14 h-14 rounded-full bg-red-600/90 group-hover:bg-red-500 group-hover:scale-110 flex items-center justify-center text-white shadow-xl shadow-red-600/40 transition-all duration-300">
+              <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Video Info -->
+          <div class="p-6">
+            <h3 class="text-base font-bold text-dark-100 group-hover:text-primary-400 line-clamp-2 leading-snug mb-2 transition-colors">
+              {vid.title}
+            </h3>
+            <p class="text-xs text-dark-400 line-clamp-2 mb-4 leading-relaxed">
+              {vid.desc}
+            </p>
+            <div class="flex items-center justify-between text-[11px] text-dark-500 border-t border-dark-800/80 pt-3">
+              <span class="flex items-center space-x-1">
+                <span>👁️</span>
+                <span>{vid.views}</span>
+              </span>
+              <span>{vid.date}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <a 
+        href="https://www.youtube.com/@thanhnhan8650" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center space-x-3 px-8 py-4 glass glass-hover rounded-xl font-semibold text-sm text-dark-200 border border-dark-700 hover:border-red-500/40"
+      >
+        <span class="text-red-500 text-lg">▶</span>
+        <span>Xem toàn bộ danh sách phát trên YouTube</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.video-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      // update active button styles
+      buttons.forEach((b) => {
+        b.classList.remove('active', 'bg-gradient-to-r', 'from-primary-500', 'to-accent-500', 'text-white', 'shadow-md', 'shadow-primary-500/20');
+        b.classList.add('glass', 'text-dark-300');
+      });
+      btn.classList.add('active', 'bg-gradient-to-r', 'from-primary-500', 'to-accent-500', 'text-white', 'shadow-md', 'shadow-primary-500/20');
+      btn.classList.remove('glass', 'text-dark-300');
+
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach((card) => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
